@@ -1,0 +1,56 @@
+
+<h2>Register</h2>
+
+<% if @user.errors.any? %>
+    <div id='error_explanation'>
+        <h2><%= pluralize(@user.errors.count, 'error') %> prohibited registration</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+<%= form_with model: @user do |form| %>
+    <%= form.label :username, 'Username:' %>
+    <%= form.text_field :username, placeholder: 'thao1711nguyen'%>
+    <%= form.label :email, 'Email:' %>
+    <%= form.email_field :email,  placeholder: 'a@gamil.com' %>
+    <%= form.label :password, 'Password:' %>
+    <%= form.password_field :password%>
+    <%= form.submit%>
+<% end %>
+<% if false %>
+<% end %>
+
+<%if false %>
+    <%= form_tag '/users' do %>
+        <%= label_tag 'name', 'Username: '%>
+        <%= text_field_tag 'name' %>
+        <%= label_tag 'email', 'Email: '%>
+        <%= email_field_tag 'email' %>
+        <%= label_tag 'password', 'Password: '%>
+        <%= password_field_tag 'password', minlength: 6, maxlength: 14 %>
+        <%= submit_tag 'Submit' %>
+    <% end %>
+<% end %>
+
+<% if false %>
+    <form action="/users" method='post' accept-charset="UTF-8">
+        <input type="hidden" name='authenticity_token' value="<%=form_authenticity_token %>">
+        <label for="username">Username:</label>
+        <input type="text" id='username' name='user[username]', minlength = '4' >
+        <br>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id='email' name='user[email]'>
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id='password' name='user[password]', minlength='6', maxlength='20'>
+        <br>
+        <br>
+        <input type="submit" value='submit'>
+    </form>
+<% end %>
